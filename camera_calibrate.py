@@ -206,27 +206,13 @@ class StereoCalibration(object):
             if key == 27 or key == ord('q'):
                 print('bye')
                 break
-
- #       stereo = cv2.StereoSGBM_create(\
- #           minDisparity=minDisp,
- #           numDisparities=numDisp,
- #           blockSize=blockSize,
- #           P1=P1,
- #           P2=P2,
- #           disp12MaxDiff=disp12MaxDiff,
- #           uniquenessRatio=uniquenessRatio,
- #           speckleWindowSize=speckleWindowSize,
- #           speckleRange=speckleRange)
         
 #        disparity = stereo.compute(Left_img_remap, Right_img_remap).astype(np.float32) / 16.0
 #        optimal_disparity = (disparity - minDisp) / numDisp
 #        cv2.imshow('disparaty_map', optimal_disparity)
 #        path_disp = 'C:/users/william/hello/'     # Path till folder med högerbilder
 #        cv2.imwrite(os.path.join(path_disp, 'Disparity_map.jpg'), optimal_disparity) # Spara disparity map
-        
-        #disparity = stereo.compute(Left_img_remap, Right_img_remap).astype(np.float32) / 16.0
-        #        mapx,mapy = cv2.initUndistortRectifyMap(mtx,dist,None,newcameramtx,dims,5)
-        #        dst = cv2.remap(img,mapx,mapy,cv2.INTER_LINEAR)
+
         ################################################3
         print('~~~~~~~~~~~~~~~~~~~ Stereo Calibrate ~~~~~~~~~~~~~~~~~~~')
         print('Intrinsic_mtx_1:', M1)
@@ -273,13 +259,6 @@ class StereoCalibration(object):
             #f.write("F:\n")
             np.savetxt(f, F)
 
-        # for i in range(len(self.r1)):
-        #     print("--- pose[", i+1, "] ---")
-        #     self.ext1, _ = cv2.Rodrigues(self.r1[i])
-        #     self.ext2, _ = cv2.Rodrigues(self.r2[i])
-        #     print('Ext1', self.ext1)
-        #     print('Ext2', self.ext2)
-
         print('')
 
         camera_model = dict([('M1', M1), ('M2', M2), ('dist1', d1),
@@ -295,7 +274,3 @@ if __name__ == '__main__':
     parser.add_argument('filepath', help='String Filepath')
     args = parser.parse_args()
     cal_data = StereoCalibration(args.filepath)
-
-#    stereoRectificationProcess( 0, M1, d1, M2, d2, R, T, E, F)
-
-# call cv2.stereoRectify to get the rectification parameters
