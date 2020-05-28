@@ -1,5 +1,7 @@
 # Stereo-camera-calibration-OpenCV-Python
 
+Everything needed to test the code is in the files above(example images etc).
+
 camera_calibrate.py (Latest update)
 
 Stereo camera calibration and creation of disparity map. Takes left and right images of a chessboard and calibrates the cameras and computes the parameters needed and then creates a disparity map. Disparity parameters are able to be changed in real time.
